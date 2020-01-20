@@ -1,4 +1,4 @@
 # Opplaering
 For å lære Python
 
-Ikke sant
+2
