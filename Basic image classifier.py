@@ -21,8 +21,20 @@ model = keras.Sequential([
     keras.layers.Dense(10, activation="softmax")
 ])
 
-model.compile(optimizer="adam", Loss="sparse_categorical_crossentropy",
+model.compile(optimizer="adam", loss="sparse_categorical_crossentropy",
 metrics=["accuracy"])
+
+model.fit(train_images, train_labels, epochs=5)
+
+prediction = model.predict(test_images)
+
+for i in range(5):
+    plt.grid(False)
+    plt.imshow(test_images[i], cmap=plt.cm.binary)
+    plt.xlabel("Actual: " + class_names[test_labels[i]])
+    plt.title("Prediction: " + class_names[np.argmax(prediction[i])])
+    plt.show()
+
 
 
 
